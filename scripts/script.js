@@ -1,105 +1,41 @@
-let boxes = document.querySelectorAll('.box');
-let reset = document.querySelector('#reset');
+let userscore = 0;
+let computerscore = 0;
+let user_scorebox = document.querySelector('#user-score');
+let computerer_scorebox = document.querySelector('#computer-score');
 
-let player1_turn = true;
-const winning_pattern = [
-    [0,1,2],
-    [3,4,5],
-    [6,7,8],
-    [0,3,6],
-    [1,4,7],
-    [2,5,8],
-    [0,4,8],
-    [2,4,6],
-];
-let modal=document.querySelector('#result');
-let victory= document.querySelector('#msg');
-let closebutton = document.querySelector('.close');
-let newgame= document.querySelector("#restart");
-const msgbox=(res)=>{
-    console.log("modal displa");
-    if(res=="O"){
-       victory.innerText=`Victory is of Player 1!`;
-    }else{
-        victory.innerText=`Victory is of Player2!`;
-
-    }
-   modal.style.display='block';
-   disable();
-
+let options = document.querySelectorAll('.option');
+const generatechoice=()=>{
+    let choices=['rock','paper','scissor'];
+    let rand = Math.random() *2;
+    rand = Math.round(rand);
+    let computer_choice =choices[rand];
+    return computer_choice;
 }
-const checkwinner=()=>{
-    let res=''
-    for(let pattern of winning_pattern){
-    let pos1 = boxes[pattern[0]].innerText;
-    let pos2 = boxes[pattern[1]].innerText;
-    let pos3 = boxes[pattern[2]].innerText;
-if(pos1 !="" && pos2 !="" && pos3 !=""){
-    if(pos1===pos2 && pos2===pos3){
-      res = pos1;
-      msgbox(res);
+const play=(user_choice)=>{
+    let computer_choice = generatechoice();
+    let msg = document.querySelector('#result');
+    let comp_ans = document.querySelector('#computer');
+    let user_ans = document.querySelector('#user');
+    user_ans.innerText=user_choice;
+    comp_ans.innerText=computer_choice;
+    if(user_choice==computer_choice){
+        msg.innerText=`Tie`
     }
-  
+    else if((user_choice=='rock' && computer_choice=='scissors') || (user_choice=='scissors' && computer_choice=='paper') || (user_choice=='paper' && computer_choice=='rock')){
+        userscore +=10;
+        user_scorebox.innerText= userscore;
+        msg.innerText=`You Win`
     }
     
+    else{
+        msg.innerText=`Computer win`
+        computerscore +=10;
+        computerer_scorebox.innerText=computerscore;
     }
-   
-   
-};
-
-boxes.forEach((box)=>{
-    box.addEventListener("click",()=>{
-        if(player1_turn){
-            box.innerText = "O";
-            player1_turn = false;
-        }
-        else{
-            box.innerText ="X"
-            player1_turn=true
-        }
-        box.disabled=true;
-        checkwinner();
-        checktie();
-    })
-
-
+}
+options.forEach((opt)=>{
+ opt.addEventListener('click',()=>{
+    const user_selected = opt.getAttribute('id');
+    play(user_selected);
+ });
 });
-const checktie=()=>{
-    allfill=true;
-boxes.forEach((box)=>{
-    let text=box.innerText
-    if(text===''){
-        allfill =false;
-    }
-  
-});
-if(allfill && !checkwinner()){
-    victory.innerText=`Game Tie!`;
-
-    modal.style.display='block';
-    disable();
-}
-}
-const disable=()=>{
-    boxes.forEach((box)=>{
-        box.disabled=true;
-    })
-}
-reset.addEventListener("click",()=>{
-    boxes.forEach((box)=>{
-        box.innerText="";
-        box.disabled=false;
-    })
-})
-newgame.addEventListener("click",()=>{
-    boxes.forEach((box)=>{
-        box.innerText="";
-        box.disabled=false;
-    })
-    close();
-})
-const close=()=>{
-    modal.style.display="none";
-
-}
- closebutton.addEventListener("click",close)
