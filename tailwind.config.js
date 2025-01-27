@@ -89,8 +89,17 @@ module.exports = {
         'bluedianne-200':'#bde2e4',
         'bluedianne-100':'#dcf0f1',
         'bluedianne-50':'#f1fafa',
-
-        
+'gamboge-50': '#fffeeb',
+  'gamboge-100': '#fffac6',
+  'gamboge-200': '#fff688',
+  'gamboge-300': '#ffeb4a',
+  'gamboge-400': '#fedc21',
+  'gamboge-500': '#f8bd08',
+  'gamboge-600': '#e19603',
+  'gamboge-700': '#b66907',
+  'gamboge-800': '#94510c',
+  'gamboge-900': '#7a430d',
+  'gamboge-950': '#462302',
         
         'cumin-950' : '#421808',
         'cumin-900' : '#7a3314',
@@ -187,6 +196,9 @@ module.exports = {
         'fruit-salad-100': '#deedde',
         'fruit-salad-50': '#f1f8f2',
       
+        'spicy':'#b77958',
+        'starship':'#eff351',
+        'blueviolet-200':'#d6f1ec',
         'di-serria-950': '#391a11',
         'di-serria-900': '#6a3624',
         'di-serria-800': '#833f29',
@@ -210,6 +222,8 @@ module.exports = {
           '800': '#842e1c',
           '900': '#6d271a',
           '950': '#3e120a',
+
+
         },
       },
       screens: {

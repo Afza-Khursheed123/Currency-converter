@@ -1,72 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Rock Paper and Scissor</title>
-    <link href="./src/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Currency Converter</title>
+  <link href="./src/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="min-h-screen flex flex-col items-center bg-di-serria-200 justify-start">
-    <div class="flex items-center justify-center min-h-[20vh] w-full">
-        <h1 class="mt-3 text-center font-extrabold animate-bounce bg-clip-text bg-gradient-to-r text-di-serria-950 font-mono text-4xl lg:text-7xl">Rock Paper and Scissor</h1>
-    </div>
-    
-    <div class="items-center justify-center w-full mt-8">
-        <div class="flex items-center justify-center options">
-            <div class="flex items-center justify-center option sm:h-36 sm:w-36 h-24 w-24 mx-4" id="rock">
-                <img src="images/rock.png" alt="rock" class="rounded-full sm:h-36 sm:w-36 h-24 w-24 object-cover hover:ring-4 ring-di-serria-950">
-            </div>
-            <div class="flex items-center justify-center option sm:h-36 sm:w-36 h-24 w-24 mx-4" id="scissor">
-                <img src="images/scissors.png" alt="scissors" class="rounded-full sm:h-36 sm:w-36 h-24 w-24 object-cover hover:ring-4 ring-di-serria-950">
-            </div>
-            <div class="flex items-center justify-center option sm:h-36 sm:w-36 h-24 w-24 mx-4" id="paper">
-                <img src="images/paper.png" alt="paper" class="rounded-full sm:h-36 sm:w-36 h-24 w-24 object-cover hover:ring-4 ring-di-serria-950">
-            </div>
+
+<body class="min-h-screen flex flex-col items-center bg-blueviolet-200 justify-start">
+  <div class="flex items-center justify-center min-h-[15vh] w-full">
+    <h1
+      class="mt-3 text-center font-bold animate-bounce bg-clip-text bg-gradient-to-r text-shamrock-950 font-sans text-3xl lg:text-5xl">
+      CURRENCY CONVERTER</h1>
+  </div>
+  <div class="items-center flex-col flex min-h-screen mt-6">
+    <div
+      class="flex flex-col w-[40vh] sm:w-[60vh] h-[50vh] items-center justify-center mt-1 bg-gradient-to-br from-fruit-salad-950 via-fruit-salad-900 to-fruit-salad-700 font-medium rounded-lg border-2 border-fruit-salad-950">
+
+      <form class="w-[40vh] p-3 justify-center items-center">
+        <div>
+          <p class="text-white font-medium  text-lg pb-2 mt-12">Enter Amount</p>
+          <input name="currency" value="1" type="number" placeholder="Enter Amount" id="input_amount"
+            class="p-2 dark:border-s-fuchsia-950 sm:w-72 rounded-lg">
         </div>
-        <div class="flex text-center items-center justify-self-center mt-2 ">
-          <div class="text-center text-3xl text-di-serria-900 font-semibold font-mono p-12">
-            <p>Your Score</p>
-            <p id="user-score" class="text-di-serria-600">0</p>
+        <div class="dropdown flex flex-row items-center justify-between mr-2 sm:mr-1 mt-4 mb-6 w-fullsm:gap-8">
+
+          <!-- From container -->
+          <div class="from items-center  mt-2 w-full sm:w-[40%]">
+            <p class="text-white font-medium rounded-lg text-lg">From</p>
+            <div class="select-container px-2 pt-0 pb-0 rounded-lg bg-white flex justify-between w-20 flex-row">
+              <img src="https://flagsapi.com/US/shiny/64.png" alt="" class="flag w-12">
+              <select name="from" value="USD" class="sm:w-14 rounded-lg"></select>
+            </div>
           </div>
-          <div class="text-center text-3xl text-di-serria-900 font-semibold font-mono user-score p-4">
-            <p>Computer Score</p>
-            <p id="computer-score" class="text-di-serria-600">0</p>
+
+          <!-- Arrow Icon - Centered -->
+          <div class="flex items-center justify-center mx-4 mt-7">
+            <i
+              class="switch fa-solid fa-arrow-right-arrow-left text-white hover:text-fruit-salad-800 cursor-pointer active:text-fruit-salad-950 text-2xl p-2"></i>
+          </div>
+
+          <!-- To container -->
+          <div class="to items-center mt-2 w-full  sm:w-[40%]">
+            <p class="text-white font-medium rounded-lg text-lg">To</p>
+            <div class="select-container px-2 pt-0 pb-0 rounded-lg bg-white flex justify-between w-20 flex-row">
+              <img src="https://flagsapi.com/PK/shiny/64.png" alt="" class="w-12">
+              <select name="to" value="PKR" class="sm:w-14 rounded-lg"></select>
+            </div>
           </div>
         </div>
-    </div>
 
-    <div class="flex flex-col items-center justify-center mt-4">
-      <div class="flex">
-      <div class="mb-4 text-center">
-
-      <p class="text-di-serria-900 font-medium  text-lg px-2 py-2.5 text-center me-2 mb-2">
-        Your Choice
-       </p>
-     
-      <p id="user" class="text-white bg-gradient-to-br from-di-serria-700 to-di-serria-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-di-serria-600 dark:focus:ring-di-serria-700 font-medium rounded-lg text-sm px-2 py-2.5 text-center me-2 mb-2">
-       Rock
-      </p>
-    </div>
-    <div class="mb-4 text-center">
-
-      <p class="text-di-serria-900 font-medium text-lg px-2 py-2.5 text-center me-2 mb-2">
-        Computer Choice
-       </p>
-     
-      <p id="computer" class="text-white bg-gradient-to-br from-di-serria-700 to-di-serria-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-di-serria-600 dark:focus:ring-di-serria-700 font-medium rounded-lg text-sm px-2 py-2.5 text-center me-2 mb-2">
-       Rock
-      </p>
-    </div>
-    </div>
-    <div class="text-center">
-      <p id="result" class="text-white bg-gradient-to-br from-teal-800 to-shamrock-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-di-serria-600 dark:focus:ring-di-serria-700 font-medium rounded-lg text-sm px-5 py-2.5">
-        Result
-      </p>
+        <div class="msg items-center justify-center text-center text-white mt-2"></div>
+        <div class="flex flex-col text-center items-center justify-center mt-3 mb-6">
+          <button id="result"
+            class="text-fruit-salad-950 bg-gradient-to-br from-gamboge-600 via-gamboge-500 to-gamboge-300  hover:bg-gamboge-400 hover:to-gamboge-300 focus:outline-green-100 active:from-gamboge-700  active:to-gamboge-600 font-medium rounded-lg text-lg px-7 py-3 mb-6 mt-3">
+            Get Exchange Rate
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 
-    <script src="scripts/script.js"></script>
+
+
+  <script src="scripts/country.js"></script>
+  <script src="scripts/script.js"></script>
 </body>
+
 </html>
